@@ -26,7 +26,7 @@ public void draw()
   ss.show();
 
   // Trouble Shoot for smooth turn transition
-  println(ss.getMyPointDirection());
+  // println(ss.getMyPointDirection());
 }
 
 public void keyPressed(){
