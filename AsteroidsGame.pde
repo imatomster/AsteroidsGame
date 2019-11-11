@@ -36,9 +36,10 @@ public void keyPressed(){
 		ss.turn(20);
 	}else if(key  == 'w'){
 		ss.accelerate(.2);
+		ss.boost();
 	}else if(key == 's'){
 		ss.stop();
-	}else if(key == TAB){
+	}else if(key == ' '){
 		ss.stop();
 		ss.hyperSpace();
 	}
