@@ -1,8 +1,8 @@
 class Spaceship extends Floater  
 {   
     // New Initializations
-    int[] boostX;
-    int[] boostY;
+    private int[] boostX;
+    private int[] boostY;
 
     Spaceship(){
         // Spaceship Design
