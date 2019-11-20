@@ -2,6 +2,9 @@
 Spaceship ss = new Spaceship();
 // Create Star Background
 Star[] starArr = new Star[200];
+// Create Asteroids Array
+ArrayList <Asteroid> astArr = new ArrayList<Asteroid>();
+
 public void setup() 
 {
   // Setup
@@ -35,7 +38,7 @@ public void keyPressed(){
 	}else if(key == 'd'){
 		ss.turn(20);
 	}else if(key  == 'w'){
-		ss.accelerate(.2);
+		ss.accelerate(.5);
 		ss.boost();
 	}else if(key == 's'){
 		ss.stop();

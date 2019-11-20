@@ -3,6 +3,8 @@ class Spaceship extends Floater
     // New Initializations
     private int[] boostX;
     private int[] boostY;
+    private int[] tempX;
+    private int[] tempY;
 
     Spaceship(){
         // Spaceship Design
@@ -15,6 +17,9 @@ class Spaceship extends Floater
     	yCorners[1] = 0;
     	xCorners[2] = -8;
     	yCorners[2] = 8;
+
+        tempX = xCorners;
+        tempY = yCorners;
 
         // Spaceship Booster
         boostX = new int[corners];
@@ -39,28 +44,13 @@ class Spaceship extends Floater
     // The same except changed array to custom "boostX & boostY" array
     public void boost(){
         fill(255,99,71);   
-        stroke(255,99,71);  
+        stroke(255,99,71);
+        xCorners = boostX;
+        yCorners = boostY;  
+        super.show();
+        xCorners = tempX;
+        yCorners = tempY;
 
-        //translate the (x,y) center of the ship to the correct position
-        translate((float)myCenterX, (float)myCenterY);
-
-        //convert degrees to radians for rotate()     
-        float dRadians = (float)(myPointDirection*(Math.PI/180));
-        
-        //rotate so that the polygon will be drawn in the correct direction
-        rotate(dRadians);
-        
-        //draw the polygon
-        beginShape();
-        for (int nI = 0; nI < corners; nI++)
-        {
-          vertex(boostX[nI], boostY[nI]);
-        }
-        endShape(CLOSE);
-
-        //"unrotate" and "untranslate" in reverse order
-        rotate(-1*dRadians);
-        translate(-1*(float)myCenterX, -1*(float)myCenterY);
     }
 
     public void stop(){
