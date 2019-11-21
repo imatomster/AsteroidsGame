@@ -5,6 +5,7 @@ class Spaceship extends Floater
     private int[] boostY;
     private int[] tempX;
     private int[] tempY;
+    private int tempC;
 
     Spaceship(){
         // Spaceship Design
@@ -31,6 +32,8 @@ class Spaceship extends Floater
         boostX[2] = -18;
         boostY[2] = 0;
 
+        tempC = 255;
+
         // Spaceship Variables
     	myColor = 255;
     	myCenterX = 300;
@@ -43,13 +46,17 @@ class Spaceship extends Floater
     // From Floater "show();"
     // The same except changed array to custom "boostX & boostY" array
     public void boost(){
-        fill(255,99,71);   
-        stroke(255,99,71);
+        // Change to Boost Variables
+        myColor = color(255,99,71);
         xCorners = boostX;
-        yCorners = boostY;  
+        yCorners = boostY; 
+
         super.show();
+
+        // Reset back to Spaceship
         xCorners = tempX;
         yCorners = tempY;
+        myColor = tempC;
 
     }
 

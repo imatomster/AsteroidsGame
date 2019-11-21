@@ -3,7 +3,7 @@ Spaceship ss = new Spaceship();
 // Create Star Background
 Star[] starArr = new Star[200];
 // Create Asteroids Array
-ArrayList <Asteroid> astArr = new ArrayList<Asteroid>();
+ArrayList <Asteroid> astArr = new ArrayList <Asteroid>();
 
 public void setup() 
 {
@@ -15,6 +15,7 @@ public void setup()
   for(int i = 0; i < starArr.length; i++){
   	starArr[i] = new Star();
   }
+
 }
 public void draw() 
 {
