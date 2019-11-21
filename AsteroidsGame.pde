@@ -16,6 +16,10 @@ public void setup()
   	starArr[i] = new Star();
   }
 
+  // Asteroid Setup
+  for(int i = 0; i < 10; i++){
+    astArr.add(new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -28,12 +32,12 @@ public void draw()
   // Space Ship
   ss.move();
   ss.show();
-
+  astArr.get(0).show();
   // Trouble Shoot for smooth turn transition
   // println(ss.getMyPointDirection());
 }
 
-public void keyPressed(){
+/*public void keyPressed(){
 	if (key == 'a'){
 		ss.turn(-20);
 	}else if(key == 'd'){
@@ -48,4 +52,4 @@ public void keyPressed(){
 		ss.hyperSpace();
 	}
 }
-
+*/

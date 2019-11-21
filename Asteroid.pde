@@ -4,15 +4,9 @@ class Asteroid extends Floater{
 
 	Asteroid(){
 		// Asteroids Design
-    	corners = 5;
-    	xCorners = new int[corners];
-    	yCorners = new int[corners];
-    	xCorners[0] = -8;
-    	yCorners[0] = -8;
-    	xCorners[1] = 16;
-    	yCorners[1] = 0;
-    	xCorners[2] = -8;
-    	yCorners[2] = 8;
+    	corners = 7;
+    	xCorners = new int[] {0,-20,-24,-11,11,24,20};
+    	yCorners = new int[] {-25,-16,6,23,23,6,-16};
 
         // Asteroids Variables
     	myColor = color(169,169,169);
@@ -24,7 +18,7 @@ class Asteroid extends Floater{
 	}
 
 	public void move(){
-
+		super.move();
 	}
 
 	public void show(){
