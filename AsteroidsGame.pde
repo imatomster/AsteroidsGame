@@ -17,7 +17,7 @@ public void setup()
   }
 
   // Asteroid Setup
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < 1; i++){
     astArr.add(new Asteroid());
   }
 }
@@ -32,12 +32,16 @@ public void draw()
   // Space Ship
   ss.move();
   ss.show();
-  astArr.get(0).show();
-  // Trouble Shoot for smooth turn transition
-  // println(ss.getMyPointDirection());
+
+  for(int i = 0; i < astArr.size(); i++){
+    astArr.get(i).rotate();
+    astArr.get(i).move();
+    astArr.get(i).show();
+  }
+  
 }
 
-/*public void keyPressed(){
+public void keyPressed(){
 	if (key == 'a'){
 		ss.turn(-20);
 	}else if(key == 'd'){
@@ -52,4 +56,3 @@ public void draw()
 		ss.hyperSpace();
 	}
 }
-*/

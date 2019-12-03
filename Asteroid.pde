@@ -10,15 +10,22 @@ class Asteroid extends Floater{
 
         // Asteroids Variables
     	myColor = color(169,169,169);
-    	myCenterX = 300;
-    	myCenterY = 300;
     	myDirectionX = 0;
     	myDirectionY = 0;
-    	myPointDirection = 0;
+    	myCenterX = 300;
+    	myCenterY = 300;
+    	myPointDirection = (int)(Math.random()*361);
 	}
 
 	public void move(){
+		double dRadians =myPointDirection*(Math.PI/180);
+		myDirectionX = ((2) * Math.cos(dRadians));    
+    	myDirectionY = ((2) * Math.sin(dRadians));  
 		super.move();
+	}
+
+	public void rotate(){
+
 	}
 
 	public void show(){
