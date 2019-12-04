@@ -23,9 +23,4 @@ class Asteroid extends Floater{
 		turn(rotSpeed);
 		super.show();
 	}
-
-	public void collision(){
-
-	}
-	
 }

@@ -47,10 +47,7 @@ public void draw()
       astArr.remove(i);
       i--;
     }
-    text("Game Over!", 300,300,50);
   }
-
-  
 }
 
 public void keyPressed(){
