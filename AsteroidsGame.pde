@@ -17,10 +17,12 @@ public void setup()
   }
 
   // Asteroid Setup
-  for(int i = 0; i < 1; i++){
+  for(int i = 0; i < 10; i++){
     astArr.add(new Asteroid());
+    astArr.get(i).accelerate(2);
   }
 }
+
 public void draw() 
 {
   // Reset Background
@@ -33,11 +35,21 @@ public void draw()
   ss.move();
   ss.show();
 
+  // Asteroids
   for(int i = 0; i < astArr.size(); i++){
-    astArr.get(i).rotate();
     astArr.get(i).move();
     astArr.get(i).show();
   }
+
+  // Collisions
+  if(get((int)(ss.getCenterX()), (int)(ss.getCenterY())) == color(169,169,169)){
+    for(int i = 0; i < astArr.size(); i++){
+      astArr.remove(i);
+      i--;
+    }
+    text("Game Over!", 300,300,50);
+  }
+
   
 }
 
