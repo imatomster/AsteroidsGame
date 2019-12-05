@@ -42,10 +42,9 @@ public void draw()
   }
 
   // Collisions
-  if(get((int)(ss.getCenterX()), (int)(ss.getCenterY())) == color(169,169,169)){
-    for(int i = 0; i < astArr.size(); i++){
+  for(int i = 0; i < astArr.size(); i++){
+    if(dist((float)(ss.getCenterX()), (float)(ss.getCenterY()), (float)(astArr.get(i).getCenterX()), (float)(astArr.get(i).getCenterY())) < 20){
       astArr.remove(i);
-      i--;
     }
   }
 }
