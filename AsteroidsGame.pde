@@ -2,8 +2,11 @@
 Spaceship ss = new Spaceship();
 // Create Star Background
 Star[] starArr = new Star[200];
-// Create Asteroids Array
+// Create Asteroids ArrayList
 ArrayList <Asteroid> astArr = new ArrayList <Asteroid>();
+// Create Bullets ArrayList
+ArrayList <Bullet> bulArr = new ArrayList <Bullet>();
+
 
 public void setup() 
 {
@@ -41,26 +44,56 @@ public void draw()
     astArr.get(i).show();
   }
 
-  // Collisions
+  // Bullets
+  for(int i = 0; i < bulArr.size(); i++){
+      bulArr.get(i).move();
+      bulArr.get(i).show();
+
+      if(bulArr.get(i).getCenterX() < 0 || bulArr.get(i).getCenterX() > width){
+        bulArr.remove(i);
+        i--;
+      }else if(bulArr.get(i).getCenterY() < 0 || bulArr.get(i).getCenterY() > height){
+        bulArr.remove(i);
+        i--;
+      }
+  }
+
+  // Collisions for Asteroids % Spaceship
   for(int i = 0; i < astArr.size(); i++){
     if(dist((float)(ss.getCenterX()), (float)(ss.getCenterY()), (float)(astArr.get(i).getCenterX()), (float)(astArr.get(i).getCenterY())) < 20){
       astArr.remove(i);
     }
   }
+
+  // for(int i = 0; i < bulArr.size(); i++){
+  //   for(int e = 0; e < astArr.size(); i++){
+  //     if(dist((float)(bulArr.get(i).getCenterX()), (float)(bulArr.get(i).getCenterY()), (float)(astArr.get(e).getCenterX()), (float)(astArr.get(e).getCenterY())) < 20){
+  //       astArr.remove(e);
+  //     }
+  //   }
+  // }
 }
 
 public void keyPressed(){
 	if (key == 'a'){
 		ss.turn(-20);
-	}else if(key == 'd'){
+	}
+  if(key == 'd'){
 		ss.turn(20);
-	}else if(key  == 'w'){
+	}
+  if(key  == 'w'){
 		ss.accelerate(.5);
 		ss.boost();
-	}else if(key == 's'){
+	}
+  if(key == 's'){
 		ss.stop();
-	}else if(key == ' '){
+	}
+  if(key == 'q'){
 		ss.stop();
 		ss.hyperSpace();
 	}
+
+  if(key == ' '){
+    bulArr.add(new Bullet());
+  }
 }
