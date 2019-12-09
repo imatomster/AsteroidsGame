@@ -58,20 +58,29 @@ public void draw()
       }
   }
 
-  // Collisions for Asteroids % Spaceship
+  // Collisions for Asteroids %& Spaceship
   for(int i = 0; i < astArr.size(); i++){
     if(dist((float)(ss.getCenterX()), (float)(ss.getCenterY()), (float)(astArr.get(i).getCenterX()), (float)(astArr.get(i).getCenterY())) < 20){
       astArr.remove(i);
+      break;
+    }
+
+    for(int a = 0; a < bulArr.size(); a ++){
+      if(dist((float)(bulArr.get(a).getCenterX()), (float)(bulArr.get(a).getCenterY()), (float)(astArr.get(i).getCenterX()), (float)(astArr.get(i).getCenterY())) < 20){
+        astArr.remove(i);
+        bulArr.remove(a);
+        break;
+      }
     }
   }
 
-  // for(int i = 0; i < bulArr.size(); i++){
-  //   for(int e = 0; e < astArr.size(); i++){
-  //     if(dist((float)(bulArr.get(i).getCenterX()), (float)(bulArr.get(i).getCenterY()), (float)(astArr.get(e).getCenterX()), (float)(astArr.get(e).getCenterY())) < 20){
-  //       astArr.remove(e);
-  //     }
-  //   }
-  // }
+
+  if(astArr.size() == 0){
+    for(int i =0 ; i < 10; i++){
+      astArr.add(new Asteroid());
+      astArr.get(i).accelerate(2);
+    }
+  }
 }
 
 public void keyPressed(){
@@ -92,7 +101,6 @@ public void keyPressed(){
 		ss.stop();
 		ss.hyperSpace();
 	}
-
   if(key == ' '){
     bulArr.add(new Bullet());
   }
