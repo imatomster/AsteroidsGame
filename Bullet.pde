@@ -15,7 +15,7 @@ class Bullet extends Floater{
 
 	public void show(){
 		fill(#D41D1D);
-		circle((float)myCenterX, (float)myCenterY, 10);
+		ellipse((float)myCenterX, (float)myCenterY, 10, 10);
 	}
 	public double getPointDirection() {return myPointDirection;}
 	public double getCenterX() {return myCenterX;}
