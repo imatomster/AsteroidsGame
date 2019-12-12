@@ -8,6 +8,15 @@ ArrayList <Asteroid> astArr = new ArrayList <Asteroid>();
 ArrayList <Bullet> bulArr = new ArrayList <Bullet>();
 
 
+// Global Variables
+Boolean aTurn = false;
+Boolean dTurn = false;
+Boolean wMove = false;
+Boolean sStop = false;
+Boolean qHyper = false;
+Boolean spaceShoot = false;
+
+
 public void setup() 
 {
   // Setup
@@ -37,6 +46,43 @@ public void draw()
   // Space Ship
   ss.move();
   ss.show();
+
+  // Move SpaceShip
+  if (aTurn == true){
+    ss.turn(-4);
+  }
+  if(dTurn == true){
+    ss.turn(4);
+  }
+  if(wMove == true){
+    ss.accelerate(.07);
+    ss.boost();
+  }
+  if(sStop == true){
+    ss.stop();
+  }
+  if(qHyper == true){
+    ss.stop();
+    ss.hyperSpace();
+  }
+  if(spaceShoot == true){
+    bulArr.add(new Bullet());
+  }
+
+  if(aTurn == true && key != 'a'){
+    aTurn = false;
+  }else if(dTurn == true && key != 'd'){
+    dTurn = false;
+  }else if(wMove == true && key != 'w'){
+    wMove = false;
+  }else if(sStop == true && key != 's'){
+    sStop = false;
+  }else if(qHyper == true && key != 'q'){
+    qHyper = false;
+  }else if(spaceShoot = true && key != ' '){
+    spaceShoot = false;
+  }
+
 
   // Asteroids
   for(int i = 0; i < astArr.size(); i++){
@@ -74,7 +120,7 @@ public void draw()
     }
   }
 
-
+  // Reset Asteroids
   if(astArr.size() == 0){
     for(int i =0 ; i < 10; i++){
       astArr.add(new Asteroid());
@@ -85,23 +131,21 @@ public void draw()
 
 public void keyPressed(){
 	if (key == 'a'){
-		ss.turn(-20);
+		aTurn = true;
 	}
   if(key == 'd'){
-		ss.turn(20);
+		dTurn = true;;
 	}
   if(key  == 'w'){
-		ss.accelerate(.5);
-		ss.boost();
+		wMove = true;
 	}
   if(key == 's'){
-		ss.stop();
+		sStop = true;
 	}
   if(key == 'q'){
-		ss.stop();
-		ss.hyperSpace();
+		qHyper = true;
 	}
   if(key == ' '){
-    bulArr.add(new Bullet());
+    spaceShoot = true;
   }
 }
