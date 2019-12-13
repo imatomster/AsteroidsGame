@@ -16,6 +16,8 @@ Boolean sStop = false;
 Boolean qHyper = false;
 Boolean spaceShoot = false;
 
+Boolean gameOver = false;
+
 
 public void setup() 
 {
@@ -83,7 +85,6 @@ public void draw()
     spaceShoot = false;
   }
 
-
   // Asteroids
   for(int i = 0; i < astArr.size(); i++){
     astArr.get(i).move();
@@ -104,10 +105,10 @@ public void draw()
       }
   }
 
-  // Collisions for Asteroids %& Spaceship
+  // Collisions for Asteroids & Spaceship
   for(int i = 0; i < astArr.size(); i++){
     if(dist((float)(ss.getCenterX()), (float)(ss.getCenterY()), (float)(astArr.get(i).getCenterX()), (float)(astArr.get(i).getCenterY())) < 20){
-      astArr.remove(i);
+      gameOver = true;
       break;
     }
 
@@ -120,6 +121,13 @@ public void draw()
     }
   }
 
+
+  // Game Over
+  if(gameOver == true){
+    gameEnd();
+  }
+
+
   // Reset Asteroids
   if(astArr.size() == 0){
     for(int i =0 ; i < 10; i++){
@@ -129,10 +137,18 @@ public void draw()
   }
 }
 
+public void gameEnd(){
+  fill(255); 
+  textSize(100);
+  text("Game Over", width/2 - 275, height/2);
+  ss.stop();
+}
+
+
 public void keyPressed(){
 	if (key == 'a'){
 		aTurn = true;
-	}
+  }
   if(key == 'd'){
 		dTurn = true;;
 	}
