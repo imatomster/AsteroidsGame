@@ -134,13 +134,13 @@ public void gameEnd(){
 
 
 public void keyPressed(){
-	if (key == 'a'){
+	if(key == 'a'){
 		aTurn = true;
   }
   if(key == 'd'){
-		dTurn = true;;
+		dTurn = true;
 	}
-  if(key  == 'w'){
+  if(key == 'w'){
 		wMove = true;
 	}
   if(key == 's'){
@@ -155,7 +155,7 @@ public void keyPressed(){
 
 
 
-  if(keyCode == ENTER){
+  if(key == ENTER){
     background(255);
     gameOver = false;
 
