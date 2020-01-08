@@ -60,6 +60,14 @@ class Spaceship extends Floater
 
     }
 
+    public void restart(){
+        myCenterX = 300;
+        myCenterY = 300;
+        myDirectionX = 0;
+        myDirectionY = 0;
+        myPointDirection = 0;
+    }
+
     public void stop(){
         myDirectionX = 0;
         myDirectionY = 0;
@@ -76,5 +84,4 @@ class Spaceship extends Floater
     public double getPointDirection() {return myPointDirection;}
     public double getDirectionX() {return myDirectionX;}
     public double getDirectionY() {return myDirectionY;}
-
 }

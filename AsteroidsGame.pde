@@ -71,20 +71,6 @@ public void draw()
     bulArr.add(new Bullet());
   }
 
-  if(aTurn == true && key != 'a'){
-    aTurn = false;
-  }else if(dTurn == true && key != 'd'){
-    dTurn = false;
-  }else if(wMove == true && key != 'w'){
-    wMove = false;
-  }else if(sStop == true && key != 's'){
-    sStop = false;
-  }else if(qHyper == true && key != 'q'){
-    qHyper = false;
-  }else if(spaceShoot = true && key != ' '){
-    spaceShoot = false;
-  }
-
   // Asteroids
   for(int i = 0; i < astArr.size(); i++){
     astArr.get(i).move();
@@ -141,6 +127,8 @@ public void gameEnd(){
   fill(255); 
   textSize(100);
   text("Game Over", width/2 - 275, height/2);
+  textSize(50);
+  text("Enter - Restart", width/2 - 175, height/2+75);
   ss.stop();
 }
 
@@ -163,5 +151,47 @@ public void keyPressed(){
 	}
   if(key == ' '){
     spaceShoot = true;
+  }
+
+
+
+  if(keyCode == ENTER){
+    background(255);
+    gameOver = false;
+
+    ss.restart();
+    starArr = new Star[200];
+    astArr = new ArrayList <Asteroid>();
+    bulArr = new ArrayList <Bullet>();
+
+    Boolean aTurn = false;
+    Boolean dTurn = false;
+    Boolean wMove = false;
+    Boolean sStop = false;
+    Boolean qHyper = false;
+    Boolean spaceShoot = false;
+
+    setup();
+  }
+}
+
+public void keyReleased(){
+  if (key == 'a'){
+    aTurn = false;
+  }
+  if(key == 'd'){
+    dTurn = false;;
+  }
+  if(key  == 'w'){
+    wMove = false;
+  }
+  if(key == 's'){
+    sStop = false;
+  }
+  if(key == 'q'){
+    qHyper = false;
+  }
+  if(key == ' '){
+    spaceShoot = false;
   }
 }
