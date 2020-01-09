@@ -9,12 +9,11 @@ ArrayList <Bullet> bulArr = new ArrayList <Bullet>();
 
 
 // Global Variables
-Boolean aTurn = false;
-Boolean dTurn = false;
-Boolean wMove = false;
-Boolean spaceShoot = false;
-
-Boolean gameOver = false;
+boolean aTurn = false;
+boolean dTurn = false;
+boolean wMove = false;
+boolean spaceShoot = false;
+boolean gameOver = false;
 
 
 public void setup() 
@@ -49,7 +48,6 @@ public void draw()
 
   // Move SpaceShip
   if(aTurn == true){
-    
     ss.turn(-4);
   }
   if(dTurn == true){
