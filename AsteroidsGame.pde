@@ -156,7 +156,6 @@ public void keyPressed(){
     aTurn = false;
     dTurn = false;
     wMove = false;
-    sStop = false;
     spaceShoot = false;
 
     setup();
