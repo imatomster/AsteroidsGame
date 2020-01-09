@@ -18,4 +18,8 @@ class Star //note that this class does NOT extend Floater
   	fill(c);
   	ellipse(x,y,size,size);
   }
+
+  public void glitter(){
+    size = (int)(Math.random()*5);
+  }
 }

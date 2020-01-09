@@ -14,6 +14,7 @@ boolean dTurn = false;
 boolean wMove = false;
 boolean spaceShoot = false;
 boolean gameOver = false;
+int score = 0;
 
 
 public void setup() 
@@ -38,9 +39,12 @@ public void draw()
 {
   // Reset Background
   background(0);
+
   for(int i = 0; i < starArr.length; i++){
   	starArr[i].show();
+    // starArr[i].glitter();
   }
+
 
   // Space Ship
   ss.move();
@@ -81,6 +85,12 @@ public void draw()
       }
   }
 
+  // ScoreBoard
+  textSize(50);
+  text("Score: " + score, width/2 - 175, height/2+75);
+  score++;
+
+
   // Collisions for Asteroids & Spaceship
   for(int i = 0; i < astArr.size(); i++){
     if(dist((float)(ss.getCenterX()), (float)(ss.getCenterY()), (float)(astArr.get(i).getCenterX()), (float)(astArr.get(i).getCenterY())) < 20){
@@ -97,12 +107,19 @@ public void draw()
     }
   }
 
-
   // Game Over
   if(gameOver == true){
     gameEnd();
   }
 
+
+  // Border
+  noFill();
+  stroke(204, 102, 0);
+  strokeWeight(10);
+  rect(0,0,600,600);
+  stroke(0);
+  strokeWeight(1);
 
   // Reset Asteroids
   if(astArr.size() == 0){
