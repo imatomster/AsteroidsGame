@@ -13,7 +13,6 @@ Boolean aTurn = false;
 Boolean dTurn = false;
 Boolean wMove = false;
 Boolean sStop = false;
-Boolean qHyper = false;
 Boolean spaceShoot = false;
 
 Boolean gameOver = false;
@@ -62,10 +61,6 @@ public void draw()
   }
   if(sStop == true){
     ss.stop();
-  }
-  if(qHyper == true){
-    ss.stop();
-    ss.hyperSpace();
   }
   if(spaceShoot == true){
     bulArr.add(new Bullet());
@@ -135,6 +130,7 @@ public void gameEnd(){
 
 public void keyPressed(){
 	if(key == 'a'){
+    System.out.println("A");
 		aTurn = true;
   }
   if(key == 'd'){
@@ -147,14 +143,12 @@ public void keyPressed(){
 		sStop = true;
 	}
   if(key == 'q'){
-		qHyper = true;
+		ss.stop();
+    ss.hyperSpace();
 	}
   if(key == ' '){
     spaceShoot = true;
   }
-
-
-
   if(key == ENTER){
     background(255);
     gameOver = false;
@@ -168,7 +162,6 @@ public void keyPressed(){
     Boolean dTurn = false;
     Boolean wMove = false;
     Boolean sStop = false;
-    Boolean qHyper = false;
     Boolean spaceShoot = false;
 
     setup();
@@ -187,9 +180,6 @@ public void keyReleased(){
   }
   if(key == 's'){
     sStop = false;
-  }
-  if(key == 'q'){
-    qHyper = false;
   }
   if(key == ' '){
     spaceShoot = false;
