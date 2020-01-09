@@ -12,7 +12,6 @@ ArrayList <Bullet> bulArr = new ArrayList <Bullet>();
 Boolean aTurn = false;
 Boolean dTurn = false;
 Boolean wMove = false;
-Boolean sStop = false;
 Boolean spaceShoot = false;
 
 Boolean gameOver = false;
@@ -49,7 +48,7 @@ public void draw()
   ss.show();
 
   // Move SpaceShip
-  if (aTurn == true){
+  if(aTurn == true){
     ss.turn(-4);
   }
   if(dTurn == true){
@@ -58,9 +57,6 @@ public void draw()
   if(wMove == true){
     ss.accelerate(.07);
     ss.boost();
-  }
-  if(sStop == true){
-    ss.stop();
   }
   if(spaceShoot == true){
     bulArr.add(new Bullet());
@@ -129,25 +125,25 @@ public void gameEnd(){
 
 
 public void keyPressed(){
-	if(key == 'a'){
-    System.out.println("A");
-		aTurn = true;
+	if (key == 'a'){
+    aTurn = true;
   }
   if(key == 'd'){
-		dTurn = true;
-	}
-  if(key == 'w'){
-		wMove = true;
-	}
+    dTurn = true;;
+  }
+  if(key  == 'w'){
+    wMove = true;
+  }
+  if(key == ' '){
+    spaceShoot = true;
+  }
+
   if(key == 's'){
-		sStop = true;
-	}
+    ss.stop();
+  }
   if(key == 'q'){
 		ss.stop();
     ss.hyperSpace();
-	}
-  if(key == ' '){
-    spaceShoot = true;
   }
   if(key == ENTER){
     background(255);
@@ -177,9 +173,6 @@ public void keyReleased(){
   }
   if(key  == 'w'){
     wMove = false;
-  }
-  if(key == 's'){
-    sStop = false;
   }
   if(key == ' '){
     spaceShoot = false;
