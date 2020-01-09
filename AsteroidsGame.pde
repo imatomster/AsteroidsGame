@@ -153,11 +153,11 @@ public void keyPressed(){
     astArr = new ArrayList <Asteroid>();
     bulArr = new ArrayList <Bullet>();
 
-    Boolean aTurn = false;
-    Boolean dTurn = false;
-    Boolean wMove = false;
-    Boolean sStop = false;
-    Boolean spaceShoot = false;
+    aTurn = false;
+    dTurn = false;
+    wMove = false;
+    sStop = false;
+    spaceShoot = false;
 
     setup();
   }
