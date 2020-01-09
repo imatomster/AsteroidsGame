@@ -49,6 +49,7 @@ public void draw()
 
   // Move SpaceShip
   if(aTurn == true){
+    
     ss.turn(-4);
   }
   if(dTurn == true){
