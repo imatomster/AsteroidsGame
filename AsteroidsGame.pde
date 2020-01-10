@@ -86,9 +86,9 @@ public void draw()
   }
 
   // ScoreBoard
+  fill(#d3d3d3);
   textSize(50);
-  text("Score: " + score, width/2 - 175, height/2+75);
-  score++;
+  text("Score: " + score, width/2 - 100, height/2 - 225);
 
 
   // Collisions for Asteroids & Spaceship
@@ -102,6 +102,7 @@ public void draw()
       if(dist((float)(bulArr.get(a).getCenterX()), (float)(bulArr.get(a).getCenterY()), (float)(astArr.get(i).getCenterX()), (float)(astArr.get(i).getCenterY())) < 20){
         astArr.remove(i);
         bulArr.remove(a);
+        score++;
         break;
       }
     }
