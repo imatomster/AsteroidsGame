@@ -170,6 +170,7 @@ public void keyPressed(){
     starArr = new Star[200];
     astArr = new ArrayList <Asteroid>();
     bulArr = new ArrayList <Bullet>();
+    score = 0;
 
     aTurn = false;
     dTurn = false;
